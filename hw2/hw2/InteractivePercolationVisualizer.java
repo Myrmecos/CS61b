@@ -47,9 +47,9 @@ public class InteractivePercolationVisualizer {
 
                 // open site (i, j) provided it's in bounds
                 if (i >= 0 && i < N && j >= 0 && j < N) {
-                    if (!perc.isOpen(i, j)) {
-                        StdOut.println(i + " " + j);
-                    }
+                    //if (!perc.isOpen(i, j)) {
+                        //StdOut.println(i + " " + j);
+                    //}
                     perc.open(i, j);
                 }
 

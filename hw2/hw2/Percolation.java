@@ -56,7 +56,7 @@ public class Percolation {
         int oneLessCol = col - 1;
         int oneMoreRow = row + 1;
         int oneMoreCol = col + 1;
-        System.out.println(ord);
+        //System.out.println(ord);
         if (oneLessCol >= 0 && isOpen(row, oneLessCol)) {
             int ord1 = grid2ord(row, oneLessCol);
             link(ord, ord1);
@@ -114,7 +114,7 @@ public class Percolation {
     }
 
     public int[] ord2grid(int ord) { return new int[] {ord / this.N, ord % this.N}; }
-    public static void main(String[] args) {
+ /*   public static void main(String[] args) {
        Percolation p = new Percolation(4);
        //constructor
        boolean b = p.quu_doubleSentinel.connected(3, 16);
@@ -139,6 +139,6 @@ public class Percolation {
         System.out.println(p.isFull(3, 0));
         System.out.println(p.isFull(3, 3));
 
-    }
+    } */
 }
 
