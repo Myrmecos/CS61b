@@ -1,5 +1,7 @@
 package hw3.hash;
 
+import org.junit.Test;
+
 import java.util.List;
 
 public class OomageTestUtility {
@@ -12,6 +14,43 @@ public class OomageTestUtility {
          * and ensure that no bucket has fewer than N / 50
          * Oomages and no bucket has more than N / 2.5 Oomages.
          */
-        return false;
+        int[] arrCnt = new int[M];
+        for (Oomage o: oomages) {
+            int bucketNum = (o.hashCode() & 0x7FFFFFFF) % M;
+            arrCnt[bucketNum] += 1;
+        }
+        int mx = maxArrElem(arrCnt);
+        int mn = minArrElem(arrCnt);
+        System.out.println("min: " + mn + "; max: " + mx);
+        return ((mx < oomages.size()/2.5) & (mn > oomages.size()/50));
+        //System.out.println(mx + ", " + M);
+        //return mx < M;
+    }
+
+    private static int minArrElem(int[] arr) {
+        int ret = arr[0];
+        for (int i: arr) {
+            if (i < ret) {
+                ret = i;
+            }
+        }
+        return ret;
+    }
+
+    private static int maxArrElem(int[] arr) {
+        int ret = arr[0];
+        for (int i: arr) {
+            if (i > ret) {
+                ret = i;
+            }
+        }
+        return ret;
+    }
+
+    @Test
+    public void testMinMax() {
+        int [] arr = {1, 2, 3, 4, 6, 5, 4, 19, -2, 29};
+        System.out.println(minArrElem(arr));
+        System.out.println(maxArrElem(arr));
     }
 }

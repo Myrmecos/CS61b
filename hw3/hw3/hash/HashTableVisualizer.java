@@ -30,7 +30,7 @@ public class HashTableVisualizer {
         HashTableDrawingUtility.drawLabels(M);
         int[] numInBucket = new int[M];
         for (Oomage s : oomages) {
-            int bucketNumber = (s.hashCode() & 0x7FFFFFFF) % M;
+            int bucketNumber = (s.hashCode() & 0x7FFFFFFF) % 10;
             double x = HashTableDrawingUtility.xCoord(numInBucket[bucketNumber]);
             numInBucket[bucketNumber] += 1;
             double y = HashTableDrawingUtility.yCoord(bucketNumber, M);
